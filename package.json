@@ -1,0 +1,30 @@
+{
+  "name": "greg-slider",
+  "version": "0.0.1",
+  "description": "slider component",
+  "keywords": ["slider", "range", "mobile"],
+  "main": "slider.jsx",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregsqueeb/greg-slider"
+  },
+  "author": "Greg Mathews <gregdmathews@gmail.com> (http://gregdmathews.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregsqueeb/greg-slider/issues"
+  },
+  "homepage": "https://github.com/gregsqueeb/greg-slider",
+  "scripts": {
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "cuid": "^1.2.5",
+    "live-server": "^0.7.1"
+  },
+  "dependencies": {
+    "cuid": "^1.2.5"
+  }
+}
