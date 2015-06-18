@@ -2,7 +2,7 @@
   "name": "greg-slider",
   "version": "0.0.1",
   "description": "slider component",
-  "keywords": ["slider", "range", "mobile"],
+  "keywords": ["slider", "range", "mobile", "react-component"],
   "main": "slider.jsx",
   "scripts": {
     "test": "make test"
