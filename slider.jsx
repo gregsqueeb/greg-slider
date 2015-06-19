@@ -34,17 +34,21 @@ var Slider = React.createClass({
         uniqueID: cuid(),
         steps: [0],
         position: 0,
-        value: this.props.value
+        value: this.props.value,
+        handleWidth: 0
       }
+    },
+
+    componentDidMount: function () {
+      var handleWidth = React.findDOMNode(this.refs.handle).offsetWidth
+      this.setState({handleWidth: handleWidth})
+      var initialPosition = (React.findDOMNode(this).offsetWidth / (this.props.max - this.props.min) * this.props.value) - handleWidth / 2
+      this.setState({position: initialPosition})
     },
 
     setClosestPosition: function (currentPosition) {
       var newPosition = this.getClosestPosition(currentPosition)
-      this.setState({position: newPosition - 14})
-    },
-
-    shouldComponentUpdate: function (nextProps, nextState) {
-      return this.state.position !== nextState.position
+      this.setState({position: newPosition - this.state.handleWidth / 2})
     },
 
     getClosestPosition: function (currentPosition) {
@@ -74,7 +78,7 @@ var Slider = React.createClass({
       if (this.props.snapToTick) {
         this.setClosestPosition(clickFromLeft)
       }else {
-        this.setState({position: clickFromLeft - 14})
+        this.setState({position: clickFromLeft - this.state.handleWidth / 2})
         this.getClosestPosition(clickFromLeft)
       }
     },
@@ -83,11 +87,10 @@ var Slider = React.createClass({
       if (this.props.snapToTick) {
         var handle = React.findDOMNode(this.refs.handle)
         handle.style.transition = 'transform .2s ease'
-        // 14 = half the width of the handle
-        this.setClosestPosition(ui.position.left + 14)
+        this.setClosestPosition(ui.position.left + this.state.handleWidth / 2)
       }else {
         this.setState({position: ui.position.left})
-        this.getClosestPosition(ui.position.left + 14)
+        this.getClosestPosition(ui.position.left + this.state.handleWidth / 2)
       }
     },
 
@@ -147,10 +150,6 @@ var Slider = React.createClass({
       return (
         <div key='ticks' className='ticks' style={{cursor: 'pointer'}} onClick={this.clickOnTrack}>{elements}</div>
       )
-    },
-    componentDidMount: function () {
-      var initialPosition = (React.findDOMNode(this).offsetWidth / (this.props.max - this.props.min) * this.props.value) - 14
-      this.setState({position: initialPosition}) // eslint-disable-line react/no-did-mount-set-state
     },
 
     render: function () {
