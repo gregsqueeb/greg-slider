@@ -1,5 +1,2 @@
-node_modules/
-npm-debug.log
 examples/ex.bundle.js
 examples/slider.css
-dist/

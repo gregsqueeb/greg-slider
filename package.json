@@ -10,8 +10,7 @@
   ],
   "main": "dist/slider.js",
   "scripts": {
-    "build-examples": "lessc slider.less slider.css; browserify -t reactify -r react -r examples/slider.jsx:slider-example -o examples/ex.bundle.js",
-    "build": "lessc slider.less dist/slider.css; browserify -t reactify -u react slider.jsx -o dist/slider.js"
+    "prepublish": "browserify -t reactify -u react slider.jsx -o dist/slider.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +23,6 @@
   },
   "homepage": "https://github.com/gregsqueeb/greg-slider",
   "devDependencies": {
-    "live-server": "^0.7.1",
     "react": "^0.13.3"
   },
   "dependencies": {

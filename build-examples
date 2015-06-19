@@ -1,0 +1,3 @@
+#!/bin/bash
+
+lessc examples/slider.less examples/slider.css; browserify -t reactify -r react -r ./examples/slider.jsx:slider-example -o examples/ex.bundle.js
