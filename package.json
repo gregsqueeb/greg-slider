@@ -10,7 +10,7 @@
   ],
   "main": "dist/slider.js",
   "scripts": {
-    "prepublish": "browserify -t reactify -u react slider.jsx -o dist/slider.js"
+    "prepublish": "mkdir dist; ./node_modules/.bin/browserify -t reactify -u react slider.jsx -o dist/slider.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/gregsqueeb/greg-slider",
   "devDependencies": {
-    "react": "^0.13.3"
+    "browserify": "^10.2.4",
+    "less": "^2.5.1",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1"
   },
   "dependencies": {
     "cuid": "^1.2.5",
