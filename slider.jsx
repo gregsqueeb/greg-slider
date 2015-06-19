@@ -13,7 +13,6 @@ var Slider = React.createClass({
       value: React.PropTypes.number,
       min: React.PropTypes.number,
       max: React.PropTypes.number,
-      index: React.PropTypes.string,
       ticks: React.PropTypes.bool,
       onChange: React.PropTypes.func,
       snapToTick: React.PropTypes.bool
@@ -21,11 +20,11 @@ var Slider = React.createClass({
 
     getDefaultProps: function () {
       return {
-        value: 0,
+        value: this.props.min,
         min: 0,
         max: 10,
-        index: '0',
-        ticks: true
+        ticks: true,
+        snapToTick: true
       }
     },
 
