@@ -6,18 +6,24 @@ Special thanks to [@abacon](https://github.com/abacon) & [@derekr](https://githu
 
 ## Installing
 
+[✨DEMO✨](http://gregdmathews.com/greg-slider/)
+
+## Installing
+
 ```bash
 $ npm install greg-slider
 ```
+
 
 If you aren't using browserify, a
 [compiled version of greg-slider](dist/slider.js) is available.
 
 ## Details
-A `<GregSlider />` element is an improved upon version of an HTML5 range type input. You are able to smoothly drag the handle no matter how large or small the number of your steps are, and you are able to style it more effectively. You can also add tick marks to your steps if you wish. <GregSlider /> is also compatible with IE9.
+A `<GregSlider />` element is an improved upon version of an HTML5 range type input. You are able to smoothly drag the handle no matter how large or small the number of your steps are, and you are able to style it more effectively. You can also add tick marks to your steps if you wish. `<GregSlider />` is also compatible with IE9.
 
 ## API
 Props:
+
 **`value`**: Determines the start position of your slider. Must be a number between `min` and `max`. Default `value` is `min`.
 
 **`min`**: The smallest number you want in the range. Default `min` is 0.
@@ -48,9 +54,9 @@ var App = React.createClass({
 			<GregSlider
 				value={0}
 				min={0}
-        max={10}
+				max={10}
 				ticks={true}
-        snapToTick={true}
+				snapToTick={true}
 				grid={[25, 25]}
 				zIndex={100}
 				onChange={this.handleChange} />
