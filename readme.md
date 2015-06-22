@@ -4,9 +4,9 @@ Slider component for react. 🔥🔥🔥
 
 Special thanks to [@abacon](https://github.com/abacon) & [@derekr](https://github.com/derekr) for answering all my questions!
 
-## Installing
+## Demo
 
-[✨DEMO✨](http://gregdmathews.com/greg-slider/)
+[✨DEMO ✨](http://gregdmathews.com/greg-slider/)
 
 ## Installing
 
