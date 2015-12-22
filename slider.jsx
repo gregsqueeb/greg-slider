@@ -20,7 +20,7 @@ var Slider = React.createClass({
 
     getDefaultProps: function () {
       return {
-        value: this.props.min,
+        value: 0,
         min: 0,
         max: 10,
         ticks: true,
@@ -43,6 +43,22 @@ var Slider = React.createClass({
       this.setState({handleWidth: handleWidth})
       var initialPosition = (React.findDOMNode(this).offsetWidth / (this.props.max - this.props.min) * this.props.value) - handleWidth / 2
       this.setState({position: initialPosition})
+    },
+
+    componentWillReceiveProps: function(nextProps) {
+        //if the value is changed from the outside, update the internal slider
+        if(nextProps.value != this.state.value) {
+            this.setPositionFromValue(nextProps.value);
+        }
+    },
+
+    setPositionFromValue(value){
+        var handle = React.findDOMNode(this.refs.handle);
+        handle.style.transition = 'transform .2s ease';
+        var sliderWidth = React.findDOMNode(this).offsetWidth;
+        var ticks = this.props.max - this.props.min;
+        var newPosition = this.getClosestPosition((sliderWidth / ticks ) * value);
+        this.setState({position: newPosition - this.state.handleWidth / 2})
     },
 
     setClosestPosition: function (currentPosition) {
